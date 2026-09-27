@@ -18,3 +18,8 @@ model Aluno{
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
