@@ -41,6 +41,17 @@ class AlunoController {
             return response.status(e.statusCode || 500).json({ error: e.message });
         }
     }
+    
+    async delete(request, response) {
+    try {
+        const { id } = request.params;
+        await alunoService.delete(id);
+        // 204 No Content: remoção bem-sucedida, sem corpo na resposta
+        return response.status(204).send();
+    } catch (e) {
+        return response.status(e.statusCode || 500).json({ error: e.message });
+    }
+}
 }
 
 module.exports = new AlunoController();
